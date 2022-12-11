@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
@@ -110,15 +111,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //onPause();
-
-                //final EditText heightText = findViewById(R.id.height);
                 String heightStr = height.getText().toString();
                 double height = Double.parseDouble(heightStr);
-                double heightM = height/100;
-                //final EditText weightText = findViewById(R.id.weight);
                 String weightStr = weight.getText().toString();
                 double weight = Double.parseDouble(weightStr);
+
+                if (heightStr.trim().toString().length() == 0 || weightStr.trim().toString().length() == 0 || height <= 0 || weight <= 0){
+                    Toast.makeText(getApplicationContext(), "Invalid Input, Please try again",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                //final EditText heightText = findViewById(R.id.height);
+                //String heightStr = height.getText().toString();
+                //double height = Double.parseDouble(heightStr);
+                double heightM = height/100;
+                //final EditText weightText = findViewById(R.id.weight);
+                //String weightStr = weight.getText().toString();
+                //double weight = Double.parseDouble(weightStr);
                 double BMI = (weight) / (heightM * heightM);
                 DecimalFormat df = new DecimalFormat("#.#");
                 double BMI_trimmed = Double.parseDouble(df.format(BMI));

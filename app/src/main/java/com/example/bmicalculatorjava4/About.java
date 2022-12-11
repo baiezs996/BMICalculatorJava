@@ -34,7 +34,7 @@ public class About extends AppCompatActivity {
                 .addItem(new Element().setTitle("Version 1.0"))
                 .addGroup("CONNECT WITH US!")
                 .addWebsite("https://iceps.uitm.edu.my/")
-                .addGitHub("baiezs996")
+                .addGitHub("baiezs996/BMICalculatorJava")
                 .addItem(createCopyright())
                 .create();
         setContentView(aboutPage);
